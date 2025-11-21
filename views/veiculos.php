@@ -5,7 +5,7 @@ ob_start();
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Veículos</h2>
-    <a href="veiculos_novo.php" class="btn btn-primary">+ Novo Veículo</a>
+    <a href="veiculos_novo.php" class="btn" style="background-color: #5C80BC; color: white;"><i class="bi bi-plus"></i> Novo Veículo</a>
 </div>
 
 <?php if(isset($_GET['msg'])): ?>
@@ -46,11 +46,11 @@ ob_start();
                     </span>
                 </td>
                 <td>
-                    <a href="veiculos_editar.php?id=<?= $v['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="veiculos_editar.php?id=<?= $v['id'] ?>" class="btn btn-sm " style="background-color: #5C80BC; color: white;"><i class="bi bi-pencil"></i></a>
                     <a href="../controllers/veiculos.php?acao=excluir&id=<?= $v['id'] ?>"
-                       class="btn btn-sm btn-danger"
+                       class="btn btn-sm" style="background-color: #BC5C5C; color: white;"
                        onclick="return confirm('Excluir este veículo?')">
-                       Excluir
+                       <i class="bi bi-trash"></i>
                     </a>
                 </td>
             </tr>

@@ -5,7 +5,7 @@ ob_start();
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Viagens</h2>
-    <a href="viagens_novo.php" class="btn btn-primary">+ Nova Viagem</a>
+    <a href="viagens_novo.php" class="btn" style="background-color: #5C80BC; color: white;"><i class="bi bi-plus"></i> Nova Viagem</a>
 </div>
 
 <?php if(isset($_GET['msg'])): ?>
@@ -57,12 +57,12 @@ ob_start();
 
                 <td>
                     <a href="viagens_editar.php?id=<?= $vi['id'] ?>" 
-                       class="btn btn-sm btn-warning">Editar</a>
+                       class="btn btn-sm " style="background-color: #5C80BC; color: white;"><i class="bi bi-pencil"></i></a>
 
                     <a href="../controllers/viagens.php?acao=excluir&id=<?= $vi['id'] ?>"
-                       class="btn btn-sm btn-danger"
+                       class="btn btn-sm" style="background-color: #BC5C5C; color: white;"
                        onclick="return confirm('Excluir esta viagem?')">
-                       Excluir
+                       <i class="bi bi-trash"></i>
                     </a>
                 </td>
             </tr>

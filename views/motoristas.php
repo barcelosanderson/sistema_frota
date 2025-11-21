@@ -5,7 +5,7 @@ ob_start();
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Motoristas</h2>
-    <a href="motoristas_novo.php" class="btn btn-primary">+ Novo Motorista</a>
+    <a href="motoristas_novo.php" class="btn" style="background-color: #5C80BC; color: white;"><i class="bi bi-plus"></i> Novo Motorista</a>
 </div>
 
 <?php if(isset($_GET['msg'])): ?>
@@ -39,13 +39,13 @@ ob_start();
                 <td><?= $m['nome'] ?></td>
                 <td><?= $m['cpf'] ?></td>
                 <td><?= $m['cnh'] ?></td>
-                <td><?= $m['telefone'] ?></td>
+                <td><?= $m['telefone'] ?></td> 
                 <td>
-                    <a href="motoristas_editar.php?id=<?= $m['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="motoristas_editar.php?id=<?= $m['id'] ?>" class="btn btn-sm " style="background-color: #5C80BC; color: white;"><i class="bi bi-pencil"></i></a>
                     <a href="../controllers/motoristas.php?acao=excluir&id=<?= $m['id'] ?>"
-                       class="btn btn-sm btn-danger"
+                       class="btn btn-sm" style="background-color: #BC5C5C; color: white;"
                        onclick="return confirm('Excluir motorista?')">
-                       Excluir
+                       <i class="bi bi-trash"></i>
                     </a>
                 </td>
             </tr>
