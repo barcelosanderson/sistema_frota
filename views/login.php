@@ -1,54 +1,79 @@
-<!-- views/login.php -->
-<?php session_start(); if(isset($_SESSION['user'])) header("Location: dashboard.php"); ?>
+<?php 
+session_start(); 
+if(isset($_SESSION['user'])) header("Location: dashboard.php"); 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <title>Login - Sistema de Frota</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <style>
-    body {
-        background: linear-gradient(135deg, #1d3557, #457b9d);
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .login-box {
-        width: 400px;
-        background: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 0 15px #0003;
-    }
+<?php include 'login_style.css'; ?>
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="login-box">
-    <h3 class="text-center mb-4">Acessar Sistema</h3>
+<div class="container" id="container">
 
-    <?php if(isset($_GET['erro'])): ?>
-        <div class="alert alert-danger">Usuário ou senha incorretos.</div>
-    <?php endif; ?>
+    <div class="form-container sign-up">
+        <form action="../controllers/auth.php" method="POST">
+            <input type="hidden" name="action" value="register">
 
-    <form action="../controllers/auth.php" method="POST">
-        <input type="hidden" name="action" value="login">
+            <h1>Criar Conta</h1>
 
-        <label>Email</label>
-        <input type="email" name="email" class="form-control mb-3" required>
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
 
-        <label>Senha</label>
-        <input type="password" name="senha" class="form-control mb-3" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
 
-        <button class="btn btn-primary w-100">Entrar</button>
+    <div class="form-container sign-in">
+        <form action="../controllers/auth.php" method="POST">
+            <input type="hidden" name="action" value="login">
 
-        <a href="register.php" class="d-block mt-3 text-center">Criar uma conta</a>
-    </form>
+            <h1>Entrar</h1>
+
+            <?php if(isset($_GET['erro'])): ?>
+                <p style="color:red; margin-bottom:10px;">Usuário ou senha incorretos.</p>
+            <?php endif; ?>
+
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <div class="toggle-container">
+        <div class="toggle">
+            
+            <div class="toggle-panel toggle-left">
+                <h1>Bem-vindo de volta!</h1>
+                <p>Entre com seus dados para acessar o sistema.</p>
+                <button class="hidden" id="login">Entrar</button>
+            </div>
+
+            <div class="toggle-panel toggle-right">
+                <img src="logo.svg">
+                <p>Crie sua conta para acessar o sistema.</p>
+                <button class="hidden" id="register">Registrar</button>
+            </div>
+
+        </div>
+    </div>
+
 </div>
+
+<script>
+<?php include 'login_script.js'; ?>
+</script>
 
 </body>
 </html>

@@ -1,4 +1,3 @@
-<!-- views/layout.php -->
 <?php
     if(!isset($_SESSION)) session_start();
     if(!isset($_SESSION['user'])) header("Location: login.php");
@@ -13,67 +12,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        body {
-            background: #f5f6fa;
-        }
-        .sidebar {
-        width: 250px;
-        height: 100vh;
-        background: #E8C547;
-        position: fixed;
-        top: 0; left: 0;
-        padding-top: 40px;
-        display: flex;
-        flex-direction: column;
-}
-
-        .sidebar a {
-            color: #111;
-            padding: 12px 20px;
-            display: block;
-            text-decoration: none;
-            font-size: 20px;
-            margin-left:20px;
-        }
-        .sidebar a:hover {
-            background: #f5f6fa;
-            color: #111;
-            border-radius: 30px 0 0 30px;
-            margin-left: 20px;
-        }
-       .sidebar a.active {
-        background: #f5f6fa;
-        color: #111;
-        border-radius: 30px 0 0 30px;
-        }
-
-        .content {
-            margin-left: 250px;
-            padding: 25px;
-        }
-        .navbar {
-            margin-left: 250px;
-            background: #fff;
-            box-shadow: 0 0 10px #ccc;
-        }
-        .card {
-            border: none;
-            box-shadow: 0 0 10px #ddd;
-        }
-        .sidebar img{
-            width: 80%;
-            margin: 0 20px 40px 20px;
-            
-        }
-        .logout-link {
-            margin-top: auto;
-        }
-
+    <?php include 'layout_style.css'; ?>
     </style>
 </head>
 <body>
 
-<!-- MENU LATERAL -->
 <div class="sidebar">
     <img src="logo.svg">
     <div class="menu-links">
@@ -85,7 +28,6 @@
     <a href="../logout.php" class="logout-link"><i class="bi bi-box-arrow-right me-1"></i> Sair</a>
 </div>
 
-<!-- CONTEÚDO -->
 <div class="content">
     <?= $content ?>
 </div>
@@ -101,14 +43,15 @@ if (ctx) {
     new Chart(ctx, {
         type: 'line',
         data: {
-            labels: <?= json_encode($dias) ?>,
-            datasets: [{
-                label: 'Faturamento diário (R$)',
-                data: <?= json_encode($totais) ?>,
-                borderWidth: 3,
-                tension: 0.3
-            }]
-        },
+    labels: <?= json_encode($dias) ?>,
+    datasets: [{
+        label: 'Faturamento diário (R$)',
+        data: <?= json_encode(array_map('floatval', $totais)) ?>,
+        borderWidth: 3,
+        tension: 0.3
+    }]
+}
+,
         options: {
             scales: {
                 y: { beginAtZero: true }

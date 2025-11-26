@@ -22,7 +22,8 @@ $totais = [];
 
 while ($row = $sql->fetch()) {
     $dias[] = $row['dia'];
-    $totais[] = $row['total'];
+    $totais[] = floatval($row['total']);
+
 }
 
 $title = "Dashboard";
@@ -55,9 +56,9 @@ ob_start();
 
 <div class="row mt-3">
 
-    <div class="col-md-4">
+    <div class="col-md-12">
         <div class="card p-3 text-center">
-            <h4>Faturamento</h4>
+            <h4>Faturamento Total (mês atual)</h4>
             <h3>R$ <?= $totalValor ?></h3>
         </div>
     </div>
@@ -68,7 +69,7 @@ ob_start();
     <div class="col-md-12">
         <div class="card p-3">
             <h4 class="text-center">Faturamento diário (mês atual)</h4>
-            <canvas id="graficoFaturamento" height="120"></canvas>
+            <canvas id="graficoFaturamento" height="300"></canvas>
         </div>
     </div>
 </div>
