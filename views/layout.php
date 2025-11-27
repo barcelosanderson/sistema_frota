@@ -6,9 +6,10 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title><?= $title ?? "Sistema de Frota" ?></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title><?= $title ?? "FROTAXI" ?></title>
+    <link rel="icon" type="image/svg+xml" href="/views/favicon.svg?v=1">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>

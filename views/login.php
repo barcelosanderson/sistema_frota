@@ -7,7 +7,8 @@ if(isset($_SESSION['user'])) header("Location: dashboard.php");
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Login - Sistema de Frota</title>
+<title>FROTAXI</title>
+<link rel="icon" type="image/svg+xml" href="/views/favicon.svg?v=1">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
